@@ -3,6 +3,11 @@
     border: 1px solid red; /*!important*/
 }
 
+:root {
+  --couleur-principale: #91F2E9;
+  --couleur-secondaire: #73BFB8;
+}
+
 body {
     width:100vw;
     height:100vh;
@@ -25,10 +30,17 @@ div.container {
     grid-gap: 1rem;
 }
 
+
 .item-1 /*numero creature*/ {
     grid-area: 1 / 1 / 2 / 17; /*row start / col start / row end / col end*/
 
 }
+
+/*.subitem-1 {
+    display :grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 50px);
+}*/
 
 .item-2 /*bio stats*/ {
     grid-area: 2 / 1 / 5 / 7; 
@@ -38,7 +50,12 @@ div.container {
 
 .item-3 /*image creature*/ {
     grid-area: 2 / 7 / 6 / 11; 
-    
+}
+
+img {
+  display: block;
+  margin: auto;
+  width: 100%;
 }
 
 

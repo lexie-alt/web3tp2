@@ -1,51 +1,21 @@
 import { Chart } from '../../node_modules/chart.js/auto/auto.js';
 
 let configurations = {
-  type: "line",
+  type: "bar",
   data: {
-    labels: [
-       "Travaux créatifs",
-      "Santé",
-      "Service à la clientèle",
-      "Curation de contenu",
-      "Finances personnelles",
-      "Achats" 
+    labels: ["2020", "2030", "2040", "2050", "2060", "2070"],
+    datasets: [
+      {
+        label: "Frozen Yogourto Population Evolution",
+        data: [153, 126, 130, 109, 92, 76]
+      }
     ]
-    
   },
   options: {
-    // Affichage  options: {
-    locale: "fr-CA",
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      title: {
-        display: true,
-        text: "Stagiaires Gen Z — Préférences IA vs intervention humaine"
-      }
-    },
-    scales: {
-      x: {
-        grid: {
-          color: "rgba(222, 222, 222, 0.1)",
-          lineWidth: 1
-        },
-        type: "category",
-        title: { display: true, text: "Domaines" }
-      },
-      y: {
-        grid: {
-          color: "rgba(222, 222, 222, 0.1)",
-          lineWidth: 1
-        },
-        min: 0,
-        max: 100,
-        title: { display: true, text: "Pourcentage (%)" },
-        ticks: { callback: (v) => v + "%" }
-      }
-    }
+    //responsive: false
+    //maintainAspectRatio: false
   }
-}
+};
 
 const contexte = document.querySelector('#mon-graphique').getContext("2d");
 new Chart(contexte, configurations);
