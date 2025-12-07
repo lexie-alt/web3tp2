@@ -1,0 +1,82 @@
+
+ * {
+    border: 1px solid red; /*!important*/
+}
+
+body {
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    
+}
+
+div.container {
+    width:100vw;
+    height:100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(16,1fr); /*chaque case occupe meme espace*/
+    grid-template-rows: repeat(9,1fr); /*au lieu écrire 200px 200px*/
+    grid-gap: 1rem;
+}
+
+.item-1 /*numero creature*/ {
+    grid-area: 1 / 1 / 2 / 17; /*row start / col start / row end / col end*/
+
+}
+
+.item-2 /*bio stats*/ {
+    grid-area: 2 / 1 / 5 / 7; 
+    
+}
+
+
+.item-3 /*image creature*/ {
+    grid-area: 2 / 7 / 6 / 11; 
+    
+}
+
+
+.item-4 /*infos creature*/{
+    grid-area: 2 / 11 / 6 / 17; 
+    
+}
+
+
+.item-5 /*emotions*/ {
+    grid-area: 5 / 1 / 6 / 7; 
+    
+}
+
+.item-6 /*adn*/ {
+    grid-area: 6 / 1 / 10 / 4; 
+    
+}
+
+.item-7 /*empreinte*/{
+    grid-area: 6 / 4 / 9 / 7;
+    
+}
+
+.item-8 /*population*/{
+    grid-area: 6 / 7 / 10 / 11;
+    
+}
+
+.item-9 /*habitat map*/ {
+    grid-area: 6 / 11 / 10 / 17;
+    
+}
+
+.item-10 /*bruit*/{
+    grid-area: 9 / 4 / 10 / 7;
+    
+}
+
+
+
