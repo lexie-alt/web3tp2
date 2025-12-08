@@ -10,7 +10,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"defer></script>
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
@@ -22,7 +22,8 @@
                 "animejs": "./node_modules/animejs/dist/bundles/anime.esm.min.js",
                 "chart.js": "./node_modules/chart.js/auto/auto.js",
                 "@kurkle/color": "./node_modules/@kurkle/color/dist/color.esm.js",
-                "maplibre-gl": "https://esm.sh/maplibre-gl@5.13.0"
+                "maplibre-gl": "https://esm.sh/maplibre-gl@5.13.0",
+                "vfx-js": "https://esm.sh/@vfx-js/core"
             }
         }
     </script>
@@ -30,22 +31,26 @@
     <script src="./src/js/animejs.js" type="module"></script>
     <script src="./src/js/chartjs.js" type="module"></script>
     <script src="./src/js/maplibre.js" type="module"></script>
+    <script src="./src/js/vfx.js" type="module"></script>
     <script src="./src/js/bootstrap.js" defer></script>
     
 </head>
 <body>
 <div class="container">
     <div class="item item-1">
-        <p>NO.937804</p>
+        <p class="num">NO.937804</p>
         <p>12-08-2025</p>
     </div>
+<!--------------------------------------------->
     <div class="item item-2">
         <canvas id="heart-rate"></canvas>
     </div>
+<!--------------------------------------------->
     <div class="item item-3">
         <div class="txt"><p>FROZEN YOGOURTO</p></div>
         <img src="./assets/img/png_creature.png" alt="image_creature">
     </div>
+<!--------------------------------------------->
     <div class="item item-4">
         <!--barre de progression-->
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
@@ -53,26 +58,41 @@
         </div>
         <!--bouton switch-->
         <label class="switch">
-        <input type="checkbox" id="nightModeToggle">
+        <input type="checkbox" id="nightModeToggle" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
         <span class="slider round"></span>
         </label>
         <!--bouton-->
-        <button type="button" class="btn btn-outline-info">Primary</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">Primary</button>
         <!--bouton knob-->
       
     </div>
-
+<!--------------------------------------------->
     <div class="item item-5">
         <label for="range3" class="form-label">Emotion Scale</label>
         <input type="range" class="form-range" min="0" max="5" step="0.5" id="range3">
     </div>
     <div class="item item-6"></div>
-    <div class="item item-7"></div>
+<!--------------------------------------------->
+    <div class="item item-7">
+        <svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" viewBox="0 0 16 16">
+        <path class="footprint" d ="M8.5 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5 6a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1M2 11a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m10.243-3.536a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-8.486-.707a.5.5 0 1 0 .707.707.5.5 0 0 0-.707-.707M8 7a4 4 0 0 0-4 4 .5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5 4 4 0 0 0-4-4m0 1a3 3 0 0 1 2.959 2.5H5.04A3 3 0 0 1 8 8"/>
+        </svg>
+    </div>
+<!--------------------------------------------->
     <div class="item item-8">
         <canvas id="mon-graphique"></canvas>
     </div>
+<!--------------------------------------------->
     <div class="item item-9">
-        <div id="carte"></div>
+        <div id="cible"></div>
+            <hr class="hrline line"/>
+            <hr class="vrline line"/>
+        <div class="target">
+            <div class="corner"></div>
+            <div class="corner"></div>
+            <div class="corner"></div>
+            <div class="corner"></div>
+        </div>
         <!--<img id="antartique" src="./assets/img/antartique.jpeg" alt="antartique">-->
         <div class="rotate-left">
             <div class="flow-content float-content-left">
@@ -81,6 +101,7 @@
                 <span>Come say hi, say hi again with a very long text the speed changes</span>
             </div>
         </div>
+        <div id="carte"></div>
         <div class="rotate-right">
             <div class="flow-content float-content-right">
                 <span>Come say bye, say bye again 1</span>
@@ -89,7 +110,6 @@
                 <span>Come say bye, say bye again 4</span>
             </div>
         </div>
-    </div>
     </div>
     <div class="item item-10"></div>
 </div>

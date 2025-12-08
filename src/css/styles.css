@@ -1,12 +1,13 @@
 
  * {
-    border: 1px solid red; /*!important*/
+    /*border: 1px solid red; /*!important*/
     font-family:'Nebulax';
 }
 
 :root {
   --couleur-principale: #0DCAF0;
   --couleur-secondaire: #73BFB8;
+  --transition: 300ms linear;
 }
 
 @font-face {
@@ -69,12 +70,7 @@ p {
     display: flex;
     align-items: center;
     
-    
 }
-
-/*.item-2 p {
-    text-align: right;
-}*/
 
 
 .item-3 /*image creature*/ {
@@ -91,91 +87,6 @@ img {
     grid-area: 2 / 11 / 6 / 17; 
     
 }
-
-.clock {
-  width: 200px;
-  height: 200px;
-  background: var(--couleur-principale);
-  border-radius: 50%;
-  margin: 50px auto;
-}
-
-
-.item-5 /*emotions*/ {
-    grid-area: 5 / 1 / 6 / 7; 
-    
-}
-
-.item-6 /*adn*/ {
-    grid-area: 6 / 1 / 10 / 4; 
-    
-}
-
-.item-7 /*empreinte*/{
-    grid-area: 6 / 4 / 9 / 7;
-    
-}
-
-.item-8 /*population*/{
-    grid-area: 6 / 7 / 10 / 11;
-    
-}
-
-.item-9 /*habitat map*/ {
-    grid-area: 6 / 11 / 10 / 17;
-    display: flex;
-    align-items: center;
-    
-}
-
-#carte {
-    width:100%;
-    height:70%;
-    opacity:80%;
-}
-
-.rotate-left, .rotate-right {
-  float: left; /* ou right selon besoin */
-  height: 98%;
-  overflow: hidden;
-  writing-mode: horizontal-tb; /* texte horizontal */
-  white-space: nowrap;          /* pour ne pas passer à la ligne */
-}
-
-.flow-content {
-  display: inline-flex;
-  overflow: hidden; /* couper le texte qui dépasse */
-}
-
-.float-content-left {
-  animation: 12s flow-left linear infinite;
-}
-
-.float-content-right {
-  animation: 12s flow-right linear infinite;
-}
-
-.flow-content span {
-  font-size: 1vw;
-  margin-left: 30px; /* espace entre éléments */
-}
-
-/* animation horizontale */
-@keyframes flow-left {
-  0%   { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
-@keyframes flow-right {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.item-10 /*bruit*/{
-    grid-area: 9 / 4 / 10 / 7;
-    
-}
-/*------------------------------------------------------------*/
 
 .switch {
   position: relative;
@@ -228,6 +139,166 @@ body.night-mode {
   color:var(--couleur-principale);
   transition: background-color 0.4s, color 0.4s;
 }
+
+.clock {
+  width: 200px;
+  height: 200px;
+  background: var(--couleur-principale);
+  border-radius: 50%;
+  margin: 50px auto;
+}
+
+
+.item-5 /*emotions*/ {
+    grid-area: 5 / 1 / 6 / 7; 
+    
+}
+
+.item-6 /*adn*/ {
+    grid-area: 6 / 1 / 10 / 4; 
+    
+}
+
+.item-7 /*empreinte*/{
+    grid-area: 6 / 4 / 9 / 7;
+    width: 100%;
+
+}
+
+svg {
+  width:100%;
+}
+
+
+.item-8 /*population*/{
+    grid-area: 6 / 7 / 10 / 11;
+    
+}
+
+.item-9 /*habitat map*/ {
+    grid-area: 6 / 11 / 10 / 17;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*width: 100%;*/
+}
+
+#carte {
+    width:100%;
+    height:80%;
+    opacity:80%;
+}
+
+.rotate-left, .rotate-right {
+  float: left; 
+  height: 98%;
+  overflow: hidden;
+  writing-mode: horizontal-tb;
+  white-space: nowrap; 
+  width: 100%;
+}
+
+.flow-content {
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.float-content-left {
+  animation: 15s flow-left linear infinite;
+}
+
+.float-content-right {
+  animation: 15s flow-right linear infinite;
+}
+
+.flow-content span {
+  font-size: 1vw;
+  margin-left: 30px;
+}
+
+/* animation horizontale */
+@keyframes flow-left {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes flow-right {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/*-------------target--------------------------------------------------------------------*/
+
+.hrline,.vrline {
+  pointer-events: none;
+  height: 3px;
+  background-color: var(--couleur-principale);
+  width: 300%;
+  position: absolute;
+  transition: var(--transition);
+  transform: translate(-50%, -50%);
+}
+.vrline {
+  transform-origin: left;
+  rotate: (90deg);
+}
+.target {
+  pointer-events: none;
+  width: 50px;
+  aspect-ratio: 1;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: var(--transition);
+}
+.corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  scale: 1;
+}
+.corner:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--couleur-principale);
+  border-left: 2px solid var(--couleur-principale);
+}
+.corner:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-top: 2px solid var(--couleur-principale);
+  border-right: 2px solid var(--couleur-principale);
+}
+.corner:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid var(--couleur-principale);
+  border-left: 2px solid var(--couleur-principale);
+}
+.corner:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid var(--couleur-principale);
+  border-right: 2px solid var(--couleur-principale);
+}
+
+#carte:hover .line {
+  background-color: var(--couleur-principale);
+}
+#carte:hover .target {
+  width: 150px;
+}
+#carte:hover .target > .corner {
+  scale: 1.5;
+}
+
+.item-10 /*bruit*/{
+    grid-area: 9 / 4 / 10 / 7;
+    
+}
+/*------------------------------------------------------------*/
+
+
 
 
 
