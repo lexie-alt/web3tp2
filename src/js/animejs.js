@@ -7,6 +7,6 @@ const {chars} = splitText("p", {
 animate(chars, {
   opacity: [0, 1],
   modifier: utils.round(0),
-  delay: stagger(50),
+  delay: stagger(100),
   loop: 100,
 });

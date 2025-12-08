@@ -36,7 +36,7 @@
 <body>
 <div class="container">
     <div class="item item-1">
-        <div class="txt"><p>NO.937804</p></div>
+       <!--<div class="txt"><p>NO.937804</p></div> --> 
     </div>
     <div class="item item-2">
         <canvas id="heart-rate"></canvas>
@@ -46,12 +46,22 @@
         <img src="./assets/img/png_creature.png" alt="image_creature">
     </div>
     <div class="item item-4">
+        <!--barre de progression-->
+        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar bg-info" style="width: 25%"></div>
+        </div>
+        <!--bouton switch-->
         <label class="switch">
         <input type="checkbox" id="nightModeToggle">
         <span class="slider round"></span>
         </label>
+        <!--bouton-->
+        <button type="button" class="btn btn-outline-info">Primary</button>
     </div>
-    <div class="item item-5"></div>
+    <div class="item item-5">
+        <label for="range3" class="form-label">Emotion Scale</label>
+        <input type="range" class="form-range" min="0" max="5" step="0.5" id="range3">
+    </div>
     <div class="item item-6"></div>
     <div class="item item-7"></div>
     <div class="item item-8">
