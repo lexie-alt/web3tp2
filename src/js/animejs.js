@@ -1,7 +1,12 @@
-import { animate } from "animejs";
+import { animate, splitText, stagger, utils } from "animejs";
 
-const a = animate(".dot", {
-  x: 240
+const {chars} = splitText("p", {
+  chars: { wrap: "clip" }
 });
 
-a.pause();
+animate(chars, {
+  opacity: [0, 1],
+  modifier: utils.round(0),
+  delay: stagger(50),
+  loop: 100,
+});

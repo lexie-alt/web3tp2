@@ -21,35 +21,47 @@
             "imports": {            
                 "animejs": "./node_modules/animejs/dist/bundles/anime.esm.min.js",
                 "chart.js": "./node_modules/chart.js/auto/auto.js",
-                "@kurkle/color": "./node_modules/@kurkle/color/dist/color.esm.js"
+                "@kurkle/color": "./node_modules/@kurkle/color/dist/color.esm.js",
+                "maplibre-gl": "https://esm.sh/maplibre-gl@5.13.0"
             }
         }
     </script>
     
     <script src="./src/js/animejs.js" type="module"></script>
     <script src="./src/js/chartjs.js" type="module"></script>
+    <script src="./src/js/maplibre.js" type="module"></script>
     <script src="./src/js/bootstrap.js" defer></script>
+    
 </head>
 <body>
-
 <div class="container">
     <div class="item item-1">
-        <p>FROZEN YOGURTO NO.937804</p>
+        <div class="txt"><p>NO.937804</p></div>
     </div>
     <div class="item item-2">
-        <!--<div class="subitem subitem-1"></div> -->
+        <canvas id="heart-rate"></canvas>
     </div>
     <div class="item item-3">
+        <div class="txt"><p>FROZEN YOGOURTO</p></div>
         <img src="./assets/img/png_creature.png" alt="image_creature">
     </div>
-    <div class="item item-4"></div>
+    <div class="item item-4">
+        <label class="switch">
+        <input type="checkbox" id="nightModeToggle">
+        <span class="slider round"></span>
+        </label>
+    </div>
     <div class="item item-5"></div>
     <div class="item item-6"></div>
     <div class="item item-7"></div>
     <div class="item item-8">
         <canvas id="mon-graphique"></canvas>
     </div>
-    <div class="item item-9"></div>
+    <div class="item item-9">
+        <div id="carte"></div>
+        <!--<img id="antartique" src="./assets/img/antartique.jpeg" alt="antartique">-->
+    </div>
+    </div>
     <div class="item item-10"></div>
 </div>
 

@@ -1,12 +1,21 @@
 
  * {
     border: 1px solid red; /*!important*/
+    font-family:'Nebulax';
 }
 
 :root {
   --couleur-principale: #91F2E9;
   --couleur-secondaire: #73BFB8;
 }
+
+@font-face {
+    font-family: 'Nebulax';
+    src: url('/assets/Nebulax-3lqLp.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 body {
     width:100vw;
@@ -15,6 +24,8 @@ body {
     justify-content: center;
     
 }
+
+/*------------------------------------------------------------*/
 
 div.container {
     width:100vw;
@@ -31,16 +42,22 @@ div.container {
 }
 
 
+
 .item-1 /*numero creature*/ {
     grid-area: 1 / 1 / 2 / 17; /*row start / col start / row end / col end*/
 
 }
 
-/*.subitem-1 {
-    display :grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 50px);
-}*/
+p {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.txt {
+  width: 33dvw;
+  position: relative;
+}
+
 
 .item-2 /*bio stats*/ {
     grid-area: 2 / 1 / 5 / 7; 
@@ -53,9 +70,8 @@ div.container {
 }
 
 img {
-  display: block;
-  margin: auto;
   width: 100%;
+  opacity : 80%;
 }
 
 
@@ -87,12 +103,74 @@ img {
 
 .item-9 /*habitat map*/ {
     grid-area: 6 / 11 / 10 / 17;
+    display: flex;
+    align-items: center;
     
+}
+
+#carte {
+    width:100%;
+    height:70%;
+    opacity:80%;
 }
 
 .item-10 /*bruit*/{
     grid-area: 9 / 4 / 10 / 7;
     
+}
+/*------------------------------------------------------------*/
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color:var(--couleur-principale);
+}
+
+input:checked + .slider:before {
+  transform: translateX(23px);
+}
+
+/* Mode sombre */
+body.night-mode {
+  background-color: #123340;
+  color:var(--couleur-principale);
+  transition: background-color 0.4s, color 0.4s;
 }
 
 
