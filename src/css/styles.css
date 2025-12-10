@@ -22,8 +22,8 @@ body {
     width:100vw;
     height:100vh;
     display: flex;
-    justify-content: center;
-    
+    align-items: center;
+    overflow: hidden;
 }
 
 /*------------------------------------------------------------*/
@@ -55,7 +55,8 @@ div.container {
 
 p {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  color:var(--couleur-principale);
 }
 
 .txt {
@@ -68,10 +69,24 @@ p {
 .item-2 /*bio stats*/ {
     grid-area: 2 / 1 / 5 / 7; 
     display: flex;
+    flex-direction: column;
+    gap: 10px;    
     align-items: center;
     
 }
 
+.adres {
+  width: 100%;
+  min-height: 50px;
+  text-align: center;
+  font-size: 18px;
+}
+
+#heart-rate {
+  width: 100%;
+  height: 200px;
+  border:1px solid #ccc; 
+}
 
 .item-3 /*image creature*/ {
     grid-area: 2 / 7 / 6 / 11; 
@@ -148,26 +163,49 @@ body.night-mode {
   margin: 50px auto;
 }
 
+.zdog-canvas {
+  border: 1px dotted var(--couleur-principale);
+
+}
+
 
 .item-5 /*emotions*/ {
     grid-area: 5 / 1 / 6 / 7; 
     
 }
 
-.item-6 /*adn*/ {
-    grid-area: 6 / 1 / 10 / 4; 
-    
+#emoji-smile {
+ display: inline-flex;
+ position: right;
 }
 
+.item-6 /*adn*/ {
+    grid-area: 6 / 1 / 10 / 4; 
+    display: flex; 
+    flex-direction: column;         
+    justify-content: center; 
+    align-items: center;     
+    overflow: hidden;    
+
+}
+
+
+.item-6 video {
+    width: 100%;        
+    height: 80%;           
+    object-fit: cover;  
+    opacity:80%;
+  }
+
+.item-6 p {
+  text-align: center;
+}
 .item-7 /*empreinte*/{
     grid-area: 6 / 4 / 9 / 7;
     width: 100%;
 
 }
 
-svg {
-  width:100%;
-}
 
 
 .item-8 /*population*/{
@@ -181,6 +219,8 @@ svg {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    overflow: hidden; 
     /*width: 100%;*/
 }
 
@@ -188,15 +228,16 @@ svg {
     width:100%;
     height:80%;
     opacity:80%;
+    border: 3px solid var(--couleur-principale);
 }
 
-.rotate-left, .rotate-right {
-  float: left; 
-  height: 98%;
+.rotate-right {
+  display: flex;              
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  writing-mode: horizontal-tb;
-  white-space: nowrap; 
-  width: 100%;
+  white-space: nowrap;
+  border: 1px solid var(--couleur-principale);
 }
 
 .flow-content {
@@ -204,28 +245,21 @@ svg {
   overflow: hidden;
 }
 
-.float-content-left {
-  animation: 15s flow-left linear infinite;
-}
-
 .float-content-right {
-  animation: 15s flow-right linear infinite;
+  animation: 30s flow-right linear infinite;
 }
 
 .flow-content span {
-  font-size: 1vw;
+  font-size: 2vw;
+  font-family:'Arial Narrow', sans-serif;
   margin-left: 30px;
+  color: var(--couleur-principale)
 }
 
 /* animation horizontale */
-@keyframes flow-left {
+@keyframes flow-right {
   0%   { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
-}
-
-@keyframes flow-right {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
 }
 
 /*-------------target--------------------------------------------------------------------*/
@@ -291,6 +325,8 @@ svg {
 #carte:hover .target > .corner {
   scale: 1.5;
 }
+
+/*------------------------------------------------------------*/
 
 .item-10 /*bruit*/{
     grid-area: 9 / 4 / 10 / 7;

@@ -10,8 +10,8 @@
 
 
     <!-- Maplibre CDN -->
-    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.13.0/dist/maplibre-gl.css"/>
-  
+    <!--<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.13.0/dist/maplibre-gl.css"/>
+-->
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -28,7 +28,8 @@
                 "chart.js": "./node_modules/chart.js/auto/auto.js",
                 "@kurkle/color": "./node_modules/@kurkle/color/dist/color.esm.js",
                 "maplibre-gl": "https://esm.sh/maplibre-gl@5.13.0",
-                "vfx-js": "https://esm.sh/@vfx-js/core"
+                "vfx-js": "https://esm.sh/@vfx-js/core",
+                "zzz": "https://esm.sh/zdog"
             }
         }
     </script>
@@ -37,7 +38,10 @@
     <script src="./src/js/chartjs.js" type="module"></script>
     <script src="./src/js/maplibre.js" type="module"></script>
     <script src="./src/js/vfx.js" type="module"></script>
+    <script src="./src/js/zdog.js" type="module"></script>
     <script src="./src/js/bootstrap.js" defer></script>
+
+  
     
 </head>
 <body>
@@ -48,7 +52,9 @@
     </div>
 <!--------------------------------------------->
     <div class="item item-2">
+        <div class="adres"></div>
         <canvas id="heart-rate"></canvas>
+         
     </div>
 <!--------------------------------------------->
     <div class="item item-3">
@@ -67,25 +73,78 @@
         <span class="slider round"></span>
         </label>
         <!--bouton-->
-        <button type="button" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">Primary</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">Primary</button>
         <!--bouton knob-->
       
+          <div class="half col">
+            <pre class="large log row">
+              <span class="label">current time</span>
+              <span class="value lcd">0</span>
+            </pre>
+        </div>
+
+        <canvas class="zdog-canvas"></canvas>
+
     </div>
 <!--------------------------------------------->
     <div class="item item-5">
         <label for="range3" class="form-label">Emotion Scale</label>
         <input type="range" class="form-range" min="0" max="5" step="0.5" id="range3">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-frown" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M4.285 12.433a.5.5 0 0 0 .683-.183A3.5 3.5 0 0 1 8 10.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.5 4.5 0 0 0 8 9.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5"/>
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" id="emoji-smile" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.5 3.5 0 0 0 8 11.5a3.5 3.5 0 0 0 3.032-1.75.5.5 0 1   1 .866.5A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683M7 6.5C7 7.328 6.552 8  6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10  5s1 .672 1 1.5"/>
+        </svg>
+
+        
     </div>
-    <div class="item item-6"></div>
+
+<!--------------------------------------------->
+    <div class="item item-6">
+        <p>DNA</p>
+        <video width="640" height="360" autoplay loop muted>
+  <source src="/assets/video/286443_tiny.mp4" type="video/mp4">
+</video>
+    </div>
+
+     
 <!--------------------------------------------->
     <div class="item item-7">
-        <svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" viewBox="0 0 16 16">
-        <path class="footprint" d ="M8.5 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5 6a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1M2 11a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m10.243-3.536a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-8.486-.707a.5.5 0 1 0 .707.707.5.5 0 0 0-.707-.707M8 7a4 4 0 0 0-4 4 .5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5 4 4 0 0 0-4-4m0 1a3 3 0 0 1 2.959 2.5H5.04A3 3 0 0 1 8 8"/>
+        <svg viewBox="0 0 16 16">
+          <g stroke="none" fill="none" fill-rule="evenodd"></g>
+            <path class="footprint" d="M8.5 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5 6a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1M2 11a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m10.243-3.536a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-8.486-.707a.5.5 0 1 0 .707.707.5.5 0 0 0-.707-.707M8 7a4 4 0 0 0-4 4 .5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5 4 4 0 0 0-4-4m0 1a3 3 0 0 1 2.959 2.5H5.04A3 3 0 0 1 8 8"/>
         </svg>
+            
+         <div id="liveAlertPlaceholder"></div>
+        <button type="button" class="btn btn-outline-info" id="liveAlertBtn">Footprint</button>
+
     </div>
 <!--------------------------------------------->
     <div class="item item-8">
         <canvas id="mon-graphique"></canvas>
+        <svg viewBox="0 0 100 100">
+
+    <circle cx="50" cy="50" r="5" fill="#0DCAF0">
+      <animate attributeName="r" values="5;45" dur="2s" repeatCount="indefinite"
+               keySplines="0.42 0 0.58 1" calcMode="spline" />
+      <animate attributeName="opacity" values="1;0" dur="2s" repeatCount="indefinite" />
+    </circle>
+
+    <circle cx="50" cy="50" r="5" fill="#0DCAF0">
+      <animate attributeName="r" values="5;7;5" dur="1s" repeatCount="indefinite" />
+    </circle>
+
+    <path d="M50,50 L95,50 A45,45 0 0,1 81.82,81.82 Z" fill="rgba(0,224,255,0.15)">
+      <animateTransform attributeName="transform" type="rotate"
+                        from="0 50 50" to="360 50 50" dur="4s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.15;0.05;0.15" keyTimes="0;0.5;1" dur="2s" repeatCount="indefinite" />
+    </path>
+  </svg>
     </div>
 <!--------------------------------------------->
     <div class="item item-9">
@@ -99,27 +158,21 @@
             <div class="corner"></div>
         </div>
         <!--<img id="antartique" src="./assets/img/antartique.jpeg" alt="antartique">-->
-        <div class="rotate-left">
-            <div class="flow-content float-content-left">
-                <span>Come say hi, say hi again</span>
-                <span>Come say hi, say hi again</span>
-                <span>Come say hi, say hi again with a very long text the speed changes</span>
-            </div>
-        </div>
-        <div class="radar"></div>
-        <div class="onde"></div>
-
+        <p>Habitation</p>
         <div id="carte"></div>
         <div class="rotate-right">
             <div class="flow-content float-content-right">
-                <span>Come say bye, say bye again 1</span>
-                <span>Come say bye, say bye again 2</span>
-                <span>Come say bye, say bye again 3</span>
-                <span>Come say bye, say bye again 4</span>
+                <span>The North Pole, where the cold meets the beauty of the ice.</span>
+                <span>The climate is changing, and the North Pole is sending its signals.</span>
+                <span>Seals and penguins watch human presence, curious yet cautious.</span>
+                <span>Arctic winds sculpt the ice and landscapes every day.</span>
             </div>
         </div>
     </div>
-    <div class="item item-10"></div>
+    <div class="item item-10">
+     <button  type="button" class="btn btn-outline-info play">Play</button>
+
+    </div>
 </div>
 
 </body>

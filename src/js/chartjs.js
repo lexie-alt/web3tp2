@@ -39,7 +39,7 @@ let configs = {
   type: "line",
   data: {
     datasets: [{
-      label: "Rythme cardiaque",
+      label: "Heart Rate",
       data: data,
       tension: 0.3, //courbure de la ligne
       borderWidth: 2,
