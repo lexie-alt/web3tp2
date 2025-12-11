@@ -1,8 +1,8 @@
- import * as Tone from "tone.js";
+import * as Tone from "tone.js";
 
 const synth = new Tone.Synth().toDestination();
 
-document.querySelector(".play").addEventListener("click", async () => {
+document.querySelector("#play").addEventListener("click", async () => {
   await Tone.start();
 
   const now = Tone.now();
@@ -13,5 +13,5 @@ document.querySelector(".play").addEventListener("click", async () => {
   synth.triggerAttackRelease("G4", "8n", now + 1.0);
   synth.triggerAttackRelease("A4", "8n", now + 1.25);
   synth.triggerAttackRelease("B4", "8n", now + 1.5);
-  synth.triggerAttackRelease("c5", "2n", now + 1.75);
+  synth.triggerAttackRelease("C5", "2n", now + 1.75);
 });

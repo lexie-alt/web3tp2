@@ -3,17 +3,17 @@ import { animate, utils } from "animejs";
 
 const illo = new Zdog.Illustration({
   element: ".zdog-canvas",
-  resize: true 
+  resize: true,
 });
 
 new Zdog.Hemisphere({
   addTo: illo,
   diameter: 50,
   color: "#0DCAF0",
-  backface: "#73BFB8"
+  backface: "#73BFB8",
 });
 
-illo.updateRenderGraph(); 
+illo.updateRenderGraph();
 
 const rotationAnimation = { y: 0, zoom: 1 };
 
@@ -29,5 +29,5 @@ animate(rotationAnimation, {
   },
   onLoop: (self) => {
     self.refresh();
-  }
+  },
 });

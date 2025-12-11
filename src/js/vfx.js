@@ -12,4 +12,3 @@ img.onload = () => {
 };
 
 if (img.complete) img.onload();
-

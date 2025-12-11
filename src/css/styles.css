@@ -1,106 +1,61 @@
-
- * {
-    /*border: 1px solid red; /*!important*/
-    font-family:'Nebulax';
+* {
+  /*border: 1px solid red; /*!important*/
+  font-family: "Nebulax";
 }
 
 :root {
-  --couleur-principale: #0DCAF0;
-  --couleur-secondaire: #73BFB8;
+  --couleur-principale: #0dcaf0;
+  --couleur-secondaire: #73bfb8;
   --transition: 300ms linear;
 }
 
 @font-face {
-    font-family: 'Nebulax';
-    src: url('/assets/Nebulax-3lqLp.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Nebulax";
+  src: url("/assets/Nebulax-3lqLp.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-
 body {
-    width:100vw;
-    height:100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: #000;
+  transition: color 0.4s;
+}
+
+body.night-mode {
+  background-color: #123340;
+  color: var(--couleur-principale);
+  transition: background-color 0.4s, color 0.4s;
 }
 
 /*------------------------------------------------------------*/
 
-div.container {
-    width:100vw;
-    height:100vh;
-    margin: 0;
-    padding: 0;
-}
-
 .container {
-    display:grid;
-    grid-template-columns: repeat(16,1fr); /*chaque case occupe meme espace*/
-    grid-template-rows: repeat(9,1fr); /*au lieu écrire 200px 200px*/
-    grid-gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr); /*chaque case occupe meme espace*/
+  grid-template-rows: repeat(9, 1fr); /*au lieu écrire 200px 200px*/
+  grid-gap: 1vw;
+  width: 100vw;
+  height: 100vh;
 }
 
+.item {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow: hidden;
+}
 
-
+/*------------------------------item 1----------------------------------------------*/
 .item-1 /*numero creature*/ {
-    grid-area: 1 / 1 / 2 / 17; /*row start / col start / row end / col end*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-
-p {
-  margin: 0;
-  font-size: 1.5rem;
-  color:var(--couleur-principale);
-}
-
-.txt {
-  width: 33dvw;
-  text-align: right;
-  width:100%
-}
-
-
-.item-2 /*bio stats*/ {
-    grid-area: 2 / 1 / 5 / 7; 
-    display: flex;
-    flex-direction: column;
-    gap: 10px;    
-    align-items: center;
-    
-}
-
-.adres {
+  grid-area: 1 / 1 / 2 / 17; /*row start / col start / row end / col end*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  min-height: 50px;
-  text-align: center;
-  font-size: 18px;
-}
-
-#heart-rate {
-  width: 100%;
-  height: 200px;
-  border:1px solid #ccc; 
-}
-
-.item-3 /*image creature*/ {
-    grid-area: 2 / 7 / 6 / 11; 
-}
-
-img {
-  width: 100%;
-  opacity : 80%;
-}
-
-
-.item-4 /*infos creature*/{
-    grid-area: 2 / 11 / 6 / 17; 
-    
 }
 
 .switch {
@@ -110,7 +65,7 @@ img {
   height: 30px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -141,103 +96,163 @@ img {
 }
 
 input:checked + .slider {
-  background-color:var(--couleur-principale);
+  background-color: var(--couleur-principale);
 }
 
 input:checked + .slider:before {
   transform: translateX(23px);
 }
 
-/* Mode sombre */
-body.night-mode {
-  background-color: #123340;
-  color:var(--couleur-principale);
-  transition: background-color 0.4s, color 0.4s;
+/*------------------------------item 2----------------------------------------------*/
+.item-2 /*bio stats*/ {
+  grid-area: 2 / 1 / 5 / 7;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
-.clock {
-  width: 200px;
+.adres {
+  width: 100%;
+  min-height: 50px;
+  text-align: center;
+  font-size: 18px;
+}
+
+#heart-rate {
+  width: 100%;
   height: 200px;
-  background: var(--couleur-principale);
+  border: 1px solid #ccc;
+}
+
+/*------------------------------item 3----------------------------------------------*/
+.item-3 /*image creature*/ {
+  grid-area: 2 / 7 / 6 / 11;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  opacity: 80%;
+}
+
+/*------------------------------item 4----------------------------------------------*/
+.item-4 /*infos creature*/ {
+  grid-area: 2 / 11 / 6 / 17;
+}
+
+.subitem-2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.subitem-3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5rem;
+}
+
+.half.col {
+  width: 100%;
+  height: auto;
+} /*current time*/
+
+.horloge {
+  position: relative;
+  width: 5rem;
+  aspect-ratio: 1;
   border-radius: 50%;
-  margin: 50px auto;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.fleche,
+.seconde,
+.aiguille {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.5rem;
+  height: 45%;
+  margin: -0.25vmax 0 0 -0.25vmax;
+  background: currentColor;
+  transform-origin: 50% 5%;
 }
 
 .zdog-canvas {
   border: 1px dotted var(--couleur-principale);
-
+  width: 40%;
+  aspect-ratio: 1 / 1;
+  display: block;
 }
 
+/*------------------------------item 5----------------------------------------------*/
 
 .item-5 /*emotions*/ {
-    grid-area: 5 / 1 / 6 / 7; 
-    
+  grid-area: 5 / 1 / 6 / 7;
 }
 
-#emoji-smile {
- display: inline-flex;
- position: right;
-}
+/*------------------------------item 6----------------------------------------------*/
 
 .item-6 /*adn*/ {
-    grid-area: 6 / 1 / 10 / 4; 
-    display: flex; 
-    flex-direction: column;         
-    justify-content: center; 
-    align-items: center;     
-    overflow: hidden;    
-
+  grid-area: 6 / 1 / 10 / 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
-
 
 .item-6 video {
-    width: 100%;        
-    height: 80%;           
-    object-fit: cover;  
-    opacity:80%;
-  }
-
-.item-6 p {
-  text-align: center;
-}
-.item-7 /*empreinte*/{
-    grid-area: 6 / 4 / 9 / 7;
-    width: 100%;
-
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  opacity: 80%;
 }
 
-
-
-.item-8 /*population*/{
-    grid-area: 6 / 7 / 10 / 11;
-    
+/*------------------------------item 7----------------------------------------------*/
+.item-7 /*empreinte*/ {
+  grid-area: 6 / 4 / 9 / 7;
+  width: 100%;
 }
+
+/*------------------------------item 8----------------------------------------------*/
+
+.item-8 /*population*/ {
+  grid-area: 6 / 7 / 10 / 11;
+}
+
+/*------------------------------item 9----------------------------------------------*/
 
 .item-9 /*habitat map*/ {
-    grid-area: 6 / 11 / 10 / 17;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    overflow: hidden; 
-    /*width: 100%;*/
+  grid-area: 6 / 11 / 10 / 17;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+  /*width: 100%;*/
 }
 
 #carte {
-    width:100%;
-    height:80%;
-    opacity:80%;
-    border: 3px solid var(--couleur-principale);
+  width: 100%;
+  height: 80%;
+  opacity: 80%;
+  border: 3px dotted var(--couleur-principale);
 }
 
 .rotate-right {
-  display: flex;              
+  display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   white-space: nowrap;
   border: 1px solid var(--couleur-principale);
+  margin-top: auto;
 }
 
 .flow-content {
@@ -250,21 +265,24 @@ body.night-mode {
 }
 
 .flow-content span {
-  font-size: 2vw;
-  font-family:'Arial Narrow', sans-serif;
+  font-size: 1vw;
   margin-left: 30px;
-  color: var(--couleur-principale)
 }
 
 /* animation horizontale */
 @keyframes flow-right {
-  0%   { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /*-------------target--------------------------------------------------------------------*/
 
-.hrline,.vrline {
+.hrline,
+.vrline {
   pointer-events: none;
   height: 3px;
   background-color: var(--couleur-principale);
@@ -326,15 +344,8 @@ body.night-mode {
   scale: 1.5;
 }
 
-/*------------------------------------------------------------*/
+/*------------------------------item 10------------------------------*/
 
-.item-10 /*bruit*/{
-    grid-area: 9 / 4 / 10 / 7;
-    
+.item-10 /*bruit*/ {
+  grid-area: 9 / 4 / 10 / 7;
 }
-/*------------------------------------------------------------*/
-
-
-
-
-
